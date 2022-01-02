@@ -8,6 +8,8 @@ const Main = ({
   setIsAddCardFlag,
   setIsEditProfileFlag,
   setIsEditAvatarFlag,
+  setSelectedCard,
+  setIsImagePopupFlag,
 }) => {
   const handleEditAvatarClick = (evt) => {};
 
@@ -23,7 +25,11 @@ const Main = ({
         setIsEditProfileFlag={setIsEditProfileFlag}
         setIsEditAvatarFlag={setIsEditAvatarFlag}
       />
-      <Places cards={cards} />
+      <Places
+        cards={cards}
+        setSelectedCard={setSelectedCard}
+        setIsImagePopupFlag={setIsImagePopupFlag}
+      />
     </main>
   );
 };

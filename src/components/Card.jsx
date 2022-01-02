@@ -1,9 +1,20 @@
 import React from "react";
 
-const Card = ({ name, link, countLike }) => {
+const Card = ({
+  name,
+  link,
+  countLike,
+  setIsImagePopupFlag,
+  setSelectedCard,
+}) => {
   return (
-    <li class="card">
-      <img class="card__img" src={link} alt={`Фото из ${name}`} />
+    <li onClick={() => setIsImagePopupFlag(true)} class="card">
+      <img
+        onClick={() => setSelectedCard({ name, link })}
+        class="card__img"
+        src={link}
+        alt={`Фото из ${name}`}
+      />
       <div class="card__inner">
         <h2 class="card__title">{name}</h2>
         <div class="card__wrap">

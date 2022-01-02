@@ -5,6 +5,7 @@ import Main from "./Main.jsx";
 import PopupAddCard from "./PopupAddCard.jsx";
 import PopupEditProfile from "./PopupEditProfile.jsx";
 import PopupEditAvatar from "./PopupEditAvatar.jsx";
+import ImagePopup from "./ImagePopup.jsx";
 import { api } from "../utils/Api";
 
 const App = () => {
@@ -13,6 +14,8 @@ const App = () => {
   const [isAddCardFlag, setIsAddCardFlag] = useState(false);
   const [isEditProfileFlag, setIsEditProfileFlag] = useState(false);
   const [isEditAvatarFlag, setIsEditAvatarFlag] = useState(false);
+  const [isImagePopupFlag, setIsImagePopupFlag] = useState(false);
+  const [selectedCard, setSelectedCard] = useState({});
 
   useEffect(() => {
     Promise.all([api.getUserInfo(), api.getInitialCards()]).then(
@@ -33,12 +36,18 @@ const App = () => {
           setIsAddCardFlag={setIsAddCardFlag}
           setIsEditProfileFlag={setIsEditProfileFlag}
           setIsEditAvatarFlag={setIsEditAvatarFlag}
+          setIsImagePopupFlag={setIsImagePopupFlag}
+          setSelectedCard={setSelectedCard}
         />
         <Footer />
       </div>
       <PopupAddCard isAddCardFlag={isAddCardFlag} />
       <PopupEditProfile isEditProfileFlag={isEditProfileFlag} />
       <PopupEditAvatar isEditAvatarFlag={isEditAvatarFlag} />
+      <ImagePopup
+        isImagePopupFlag={isImagePopupFlag}
+        selectedCard={selectedCard}
+      />
     </div>
   );
 };

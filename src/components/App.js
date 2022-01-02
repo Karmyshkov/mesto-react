@@ -33,7 +33,7 @@ const App = () => {
     setIsAddPlacePopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
-    setSelectedCard({});
+    setSelectedCard({ name: "", link: "" });
   };
 
   return (

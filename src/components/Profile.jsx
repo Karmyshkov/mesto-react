@@ -1,6 +1,11 @@
 import React from "react";
 
-const Profile = ({ userInfo }) => {
+const Profile = ({
+  userInfo,
+  setIsAddCardFlag,
+  setIsEditProfileFlag,
+  setIsEditAvatarFlag,
+}) => {
   return (
     <section className="profile page__profile">
       <div className="profile__wrap">
@@ -10,12 +15,17 @@ const Profile = ({ userInfo }) => {
             src={userInfo.avatar}
             alt="Аватар пользователя"
           />
-          <button className="profile__btn-avatar" type="button"></button>
+          <button
+            onClick={() => setIsEditAvatarFlag(true)}
+            className="profile__btn-avatar"
+            type="button"
+          ></button>
         </div>
         <div className="profile__inner">
           <div className="profile__row">
             <h1 className="profile__name">{userInfo.name}</h1>
             <button
+              onClick={() => setIsEditProfileFlag(true)}
               className="profile__edit"
               type="button"
               aria-label="Изменить"
@@ -25,6 +35,7 @@ const Profile = ({ userInfo }) => {
         </div>
       </div>
       <button
+        onClick={() => setIsAddCardFlag(true)}
         className="profile__btn"
         type="button"
         aria-label="Добавить"

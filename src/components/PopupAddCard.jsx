@@ -10,25 +10,21 @@ const PopupAddCard = ({ isOpen, onClose }) => {
       title="Новое место"
     >
       <input
-        class="popup__field"
+        className="popup__field"
         type="text"
         name="new-place"
         id="new-place"
         placeholder="Название"
-        required
-        minlength={2}
-        maxlength={30}
       />
-      <span id="new-place-error" class="popup__error"></span>
+      <span id="new-place-error" className="popup__error"></span>
       <input
-        class="popup__field"
+        className="popup__field"
         type="url"
         name="new-img"
         id="new-img"
         placeholder="Ссылка на картинку"
-        required
       />
-      <span id="new-img-error" class="popup__error"></span>
+      <span id="new-img-error" className="popup__error"></span>
     </PopupWithForm>
   );
 };

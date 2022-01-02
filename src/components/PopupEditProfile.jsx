@@ -10,25 +10,19 @@ const PopupEditProfile = ({ isOpen, onClose }) => {
       title="Редактировать профиль"
     >
       <input
-        class="popup__field"
+        className="popup__field"
         type="text"
         name="user-name"
         id="user-name"
-        required
-        minlength={2}
-        maxlength={40}
       />
-      <span id="user-name-error" class="popup__error"></span>
+      <span id="user-name-error" className="popup__error"></span>
       <input
-        class="popup__field"
+        className="popup__field"
         type="text"
         name="user-job"
         id="user-job"
-        required
-        minlength={2}
-        maxlength={200}
       />
-      <span id="user-job-error" class="popup__error"></span>
+      <span id="user-job-error" className="popup__error"></span>
     </PopupWithForm>
   );
 };

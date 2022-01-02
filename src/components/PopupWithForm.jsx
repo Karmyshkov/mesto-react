@@ -3,16 +3,16 @@ import React from "react";
 const PopupWithForm = ({ name, children, isOpen, onClose, title }) => {
   return (
     <div className={`popup popup_type_${name} ${isOpen && "popup_opened"}`}>
-      <div class="popup__container">
-        <h2 class="popup__title">{title}</h2>
-        <form class="popup__form" name={name} noValidate>
+      <div className="popup__container">
+        <h2 className="popup__title">{title}</h2>
+        <form className="popup__form" name={name} noValidate>
           {children}
-          <button class="popup__btn" type="submit">
+          <button className="popup__btn" type="submit">
             Сохранить
           </button>
           <button
             onClick={() => onClose(false)}
-            class="popup__close"
+            className="popup__close"
             type="button"
             aria-label="Закрыть"
           ></button>

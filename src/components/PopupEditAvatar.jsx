@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import PopupWithForm from "./PopupWithForm.jsx";
 
 const PopupEditAvatar = ({ isOpen, onClose }) => {
@@ -10,14 +10,14 @@ const PopupEditAvatar = ({ isOpen, onClose }) => {
       title="Обновить аватар"
     >
       <input
-        class="popup__field"
+        className="popup__field"
         type="url"
         name="avatar"
         id="avatar"
         placeholder="Ссылка на картинку"
         required
       />
-      <span id="avatar-error" class="popup__error"></span>
+      <span id="avatar-error" className="popup__error"></span>
     </PopupWithForm>
   );
 };

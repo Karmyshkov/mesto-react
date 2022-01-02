@@ -6,7 +6,7 @@ import Places from "./Places.jsx";
 import { api } from "../utils/Api";
 
 const App = () => {
-  const [cards, setCards] = useState(null);
+  const [cards, setCards] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const App = () => {
         <Header />
         <main className="content">
           <Profile />
-          <Places />
+          <Places cards={cards} />
         </main>
         <Footer />
       </div>

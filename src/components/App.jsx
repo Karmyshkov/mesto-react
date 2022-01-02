@@ -7,7 +7,7 @@ import { api } from "../utils/Api";
 
 const App = () => {
   const [cards, setCards] = useState([]);
-  const [userInfo, setUserInfo] = useState(null);
+  const [userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
     Promise.all([api.getUserInfo(), api.getInitialCards()]).then(
@@ -23,7 +23,7 @@ const App = () => {
       <div className="page">
         <Header />
         <main className="content">
-          <Profile />
+          <Profile userInfo={userInfo} />
           <Places cards={cards} />
         </main>
         <Footer />

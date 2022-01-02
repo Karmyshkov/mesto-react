@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ name, link }) => {
+const Card = ({ name, link, countLike }) => {
   return (
     <li class="card">
       <img class="card__img" src={link} alt={`Фото из ${name}`} />
@@ -12,7 +12,7 @@ const Card = ({ name, link }) => {
             type="button"
             aria-label="Лайкнуть"
           ></button>
-          <span class="card__count"></span>
+          <span class="card__count">{countLike}</span>
         </div>
       </div>
       <button

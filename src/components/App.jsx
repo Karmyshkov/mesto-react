@@ -11,10 +11,9 @@ import { api } from "../utils/Api";
 const App = () => {
   const [cards, setCards] = useState([]);
   const [userInfo, setUserInfo] = useState([]);
-  const [isAddCardFlag, setIsAddCardFlag] = useState(false);
-  const [isEditProfileFlag, setIsEditProfileFlag] = useState(false);
-  const [isEditAvatarFlag, setIsEditAvatarFlag] = useState(false);
-  const [isImagePopupFlag, setIsImagePopupFlag] = useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
 
   useEffect(() => {
@@ -26,6 +25,19 @@ const App = () => {
     );
   }, []);
 
+  const handleEditAvatarClick = (evt) => {};
+
+  const handleEditProfileClick = (evt) => {};
+
+  const handleAddPlaceClick = (evt) => {};
+
+  const closeAllPopups = () => {
+    setIsAddPlacePopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+    setSelectedCard({});
+  };
+
   return (
     <div className="body">
       <div className="page">
@@ -33,28 +45,23 @@ const App = () => {
         <Main
           userInfo={userInfo}
           cards={cards}
-          setIsAddCardFlag={setIsAddCardFlag}
-          setIsEditProfileFlag={setIsEditProfileFlag}
-          setIsEditAvatarFlag={setIsEditAvatarFlag}
-          setIsImagePopupFlag={setIsImagePopupFlag}
+          setIsAddPlacePopupOpen={setIsAddPlacePopupOpen}
+          setIsEditProfilePopupOpen={setIsEditProfilePopupOpen}
+          setIsEditAvatarPopupOpen={setIsEditAvatarPopupOpen}
           setSelectedCard={setSelectedCard}
         />
         <Footer />
       </div>
-      <PopupAddCard isOpen={isAddCardFlag} closeHandler={setIsAddCardFlag} />
+      <PopupAddCard isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
       <PopupEditProfile
-        isOpen={isEditProfileFlag}
-        closeHandler={setIsEditProfileFlag}
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
       />
       <PopupEditAvatar
-        isOpen={isEditAvatarFlag}
-        closeHandler={setIsEditAvatarFlag}
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
       />
-      <ImagePopup
-        isOpen={isImagePopupFlag}
-        closeHandler={setIsImagePopupFlag}
-        card={selectedCard}
-      />
+      <ImagePopup onClose={closeAllPopups} card={selectedCard} />
     </div>
   );
 };

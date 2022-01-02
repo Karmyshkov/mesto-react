@@ -1,11 +1,15 @@
 import React from "react";
 
-const PopupTypeMore = ({ isOpen, closeHandler, card }) => {
+const PopupTypeMore = ({ onClose, card }) => {
   return (
-    <div class={`popup popup_type_more ${isOpen && "popup_opened"}`}>
+    <div
+      class={`popup popup_type_more ${
+        Object.keys(card).length !== 0 && "popup_opened"
+      }`}
+    >
       <div class="popup__inner">
         <button
-          onClick={() => closeHandler(false)}
+          onClick={() => onClose(false)}
           class="popup__close"
           type="button"
           aria-label="Закрыть"

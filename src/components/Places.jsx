@@ -1,14 +1,13 @@
 import React from "react";
 import Card from "./Card.jsx";
 
-const Places = ({ cards, setIsImagePopupFlag, setSelectedCard }) => {
+const Places = ({ cards, setSelectedCard }) => {
   const CardsComponents = cards.map((card) => (
     <Card
       key={card._id}
       name={card.name}
       link={card.link}
       countLike={card.likes.length}
-      setIsImagePopupFlag={setIsImagePopupFlag}
       setSelectedCard={setSelectedCard}
     />
   ));

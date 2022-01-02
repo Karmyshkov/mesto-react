@@ -5,31 +5,20 @@ import Places from "./Places.jsx";
 const Main = ({
   userInfo,
   cards,
-  setIsAddCardFlag,
-  setIsEditProfileFlag,
-  setIsEditAvatarFlag,
+  setIsAddPlacePopupOpen,
+  setIsEditProfilePopupOpen,
+  setIsEditAvatarPopupOpen,
   setSelectedCard,
-  setIsImagePopupFlag,
 }) => {
-  const handleEditAvatarClick = (evt) => {};
-
-  const handleEditProfileClick = (evt) => {};
-
-  const handleAddPlaceClick = (evt) => {};
-
   return (
     <main className="content">
       <Profile
         userInfo={userInfo}
-        setIsAddCardFlag={setIsAddCardFlag}
-        setIsEditProfileFlag={setIsEditProfileFlag}
-        setIsEditAvatarFlag={setIsEditAvatarFlag}
+        setIsAddPlacePopupOpen={setIsAddPlacePopupOpen}
+        setIsEditProfilePopupOpen={setIsEditProfilePopupOpen}
+        setIsEditAvatarPopupOpen={setIsEditAvatarPopupOpen}
       />
-      <Places
-        cards={cards}
-        setSelectedCard={setSelectedCard}
-        setIsImagePopupFlag={setIsImagePopupFlag}
-      />
+      <Places cards={cards} setSelectedCard={setSelectedCard} />
     </main>
   );
 };

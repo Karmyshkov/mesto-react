@@ -1,14 +1,8 @@
 import React from "react";
 
-const Card = ({
-  name,
-  link,
-  countLike,
-  setIsImagePopupFlag,
-  setSelectedCard,
-}) => {
+const Card = ({ name, link, countLike, setSelectedCard }) => {
   return (
-    <li onClick={() => setIsImagePopupFlag(true)} class="card">
+    <li class="card">
       <img
         onClick={() => setSelectedCard({ name, link })}
         class="card__img"

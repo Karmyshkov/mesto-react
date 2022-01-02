@@ -2,9 +2,9 @@ import React from "react";
 
 const Profile = ({
   userInfo,
-  setIsAddCardFlag,
-  setIsEditProfileFlag,
-  setIsEditAvatarFlag,
+  setIsAddPlacePopupOpen,
+  setIsEditProfilePopupOpen,
+  setIsEditAvatarPopupOpen,
 }) => {
   return (
     <section className="profile page__profile">
@@ -16,7 +16,7 @@ const Profile = ({
             alt="Аватар пользователя"
           />
           <button
-            onClick={() => setIsEditAvatarFlag(true)}
+            onClick={() => setIsEditAvatarPopupOpen(true)}
             className="profile__btn-avatar"
             type="button"
           ></button>
@@ -25,7 +25,7 @@ const Profile = ({
           <div className="profile__row">
             <h1 className="profile__name">{userInfo.name}</h1>
             <button
-              onClick={() => setIsEditProfileFlag(true)}
+              onClick={() => setIsEditProfilePopupOpen(true)}
               className="profile__edit"
               type="button"
               aria-label="Изменить"
@@ -35,7 +35,7 @@ const Profile = ({
         </div>
       </div>
       <button
-        onClick={() => setIsAddCardFlag(true)}
+        onClick={() => setIsAddPlacePopupOpen(true)}
         className="profile__btn"
         type="button"
         aria-label="Добавить"

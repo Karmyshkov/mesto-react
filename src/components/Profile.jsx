@@ -1,11 +1,6 @@
 import React from "react";
 
-const Profile = ({
-  userInfo,
-  setIsAddPlacePopupOpen,
-  setIsEditProfilePopupOpen,
-  setIsEditAvatarPopupOpen,
-}) => {
+const Profile = ({ userInfo, onEditAvatar, onEditProfile, onAddPlace }) => {
   return (
     <section className="profile page__profile">
       <div className="profile__wrap">
@@ -16,7 +11,7 @@ const Profile = ({
             alt="Аватар пользователя"
           />
           <button
-            onClick={() => setIsEditAvatarPopupOpen(true)}
+            onClick={onEditAvatar}
             className="profile__btn-avatar"
             type="button"
           ></button>
@@ -25,7 +20,7 @@ const Profile = ({
           <div className="profile__row">
             <h1 className="profile__name">{userInfo.name}</h1>
             <button
-              onClick={() => setIsEditProfilePopupOpen(true)}
+              onClick={onEditProfile}
               className="profile__edit"
               type="button"
               aria-label="Изменить"
@@ -35,7 +30,7 @@ const Profile = ({
         </div>
       </div>
       <button
-        onClick={() => setIsAddPlacePopupOpen(true)}
+        onClick={onAddPlace}
         className="profile__btn"
         type="button"
         aria-label="Добавить"

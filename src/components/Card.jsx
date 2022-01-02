@@ -1,10 +1,10 @@
 import React from "react";
 
-const Card = ({ name, link, countLike, setSelectedCard }) => {
+const Card = ({ name, link, countLike, onCardClick }) => {
   return (
     <li class="card">
       <img
-        onClick={() => setSelectedCard({ name, link })}
+        onClick={() => onCardClick({ name, link })}
         class="card__img"
         src={link}
         alt={`Фото из ${name}`}

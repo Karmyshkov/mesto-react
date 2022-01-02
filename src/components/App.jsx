@@ -25,11 +25,21 @@ const App = () => {
     );
   }, []);
 
-  const handleEditAvatarClick = (evt) => {};
+  const handleCardClick = (obj) => {
+    setSelectedCard(obj);
+  };
 
-  const handleEditProfileClick = (evt) => {};
+  const handleEditAvatarClick = () => {
+    setIsEditAvatarPopupOpen(true);
+  };
 
-  const handleAddPlaceClick = (evt) => {};
+  const handleEditProfileClick = () => {
+    setIsEditProfilePopupOpen(true);
+  };
+
+  const handleAddPlaceClick = () => {
+    setIsAddPlacePopupOpen(true);
+  };
 
   const closeAllPopups = () => {
     setIsAddPlacePopupOpen(false);
@@ -45,10 +55,10 @@ const App = () => {
         <Main
           userInfo={userInfo}
           cards={cards}
-          setIsAddPlacePopupOpen={setIsAddPlacePopupOpen}
-          setIsEditProfilePopupOpen={setIsEditProfilePopupOpen}
-          setIsEditAvatarPopupOpen={setIsEditAvatarPopupOpen}
-          setSelectedCard={setSelectedCard}
+          onCardClick={handleCardClick}
+          onEditAvatar={handleEditAvatarClick}
+          onEditProfile={handleEditProfileClick}
+          onAddPlace={handleAddPlaceClick}
         />
         <Footer />
       </div>

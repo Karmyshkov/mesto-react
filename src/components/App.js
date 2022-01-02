@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
-import Main from "./Main.jsx";
-import PopupAddCard from "./PopupAddCard.jsx";
-import PopupEditProfile from "./PopupEditProfile.jsx";
-import PopupEditAvatar from "./PopupEditAvatar.jsx";
-import ImagePopup from "./ImagePopup.jsx";
+import Header from "./Header";
+import Footer from "./Footer";
+import Main from "./Main";
+import PopupAddCard from "./PopupAddCard";
+import PopupEditProfile from "./PopupEditProfile";
+import PopupEditAvatar from "./PopupEditAvatar";
+import ImagePopup from "./ImagePopup";
 import { api } from "../utils/Api";
 
 const App = () => {

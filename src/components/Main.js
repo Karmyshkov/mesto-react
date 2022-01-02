@@ -1,6 +1,6 @@
 import React from "react";
-import Profile from "./Profile.jsx";
-import Places from "./Places.jsx";
+import Profile from "./Profile";
+import Places from "./Places";
 
 const Main = ({
   userInfo,

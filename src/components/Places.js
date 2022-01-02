@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card.jsx";
+import Card from "./Card";
 
 const Places = ({ cards, onCardClick }) => {
   const CardsComponents = cards.map((card) => (

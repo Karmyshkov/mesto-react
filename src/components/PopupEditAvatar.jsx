@@ -1,11 +1,12 @@
 import react from "react";
 import PopupWithForm from "./PopupWithForm.jsx";
 
-const PopupEditAvatar = ({ isEditAvatarFlag }) => {
+const PopupEditAvatar = ({ isOpen, closeHandler }) => {
   return (
     <PopupWithForm
       name="edit-avatar"
-      isOpen={isEditAvatarFlag}
+      isOpen={isOpen}
+      closeHandler={closeHandler}
       title="Обновить аватар"
     >
       <input

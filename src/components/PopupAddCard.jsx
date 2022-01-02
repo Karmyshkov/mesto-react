@@ -1,9 +1,14 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm.jsx";
 
-const PopupAddCard = ({ isAddCardFlag }) => {
+const PopupAddCard = ({ isOpen, closeHandler }) => {
   return (
-    <PopupWithForm name="add-card" isOpen={isAddCardFlag} title="Новое место">
+    <PopupWithForm
+      name="add-card"
+      isOpen={isOpen}
+      closeHandler={closeHandler}
+      title="Новое место"
+    >
       <input
         class="popup__field"
         type="text"

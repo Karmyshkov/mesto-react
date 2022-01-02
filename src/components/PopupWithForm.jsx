@@ -1,6 +1,6 @@
 import React from "react";
 
-const PopupWithForm = ({ name, children, isOpen, title }) => {
+const PopupWithForm = ({ name, children, isOpen, closeHandler, title }) => {
   return (
     <div className={`popup popup_type_${name} ${isOpen && "popup_opened"}`}>
       <div class="popup__container">
@@ -11,6 +11,7 @@ const PopupWithForm = ({ name, children, isOpen, title }) => {
             Сохранить
           </button>
           <button
+            onClick={() => closeHandler(false)}
             class="popup__close"
             type="button"
             aria-label="Закрыть"

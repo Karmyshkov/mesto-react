@@ -41,12 +41,19 @@ const App = () => {
         />
         <Footer />
       </div>
-      <PopupAddCard isAddCardFlag={isAddCardFlag} />
-      <PopupEditProfile isEditProfileFlag={isEditProfileFlag} />
-      <PopupEditAvatar isEditAvatarFlag={isEditAvatarFlag} />
+      <PopupAddCard isOpen={isAddCardFlag} closeHandler={setIsAddCardFlag} />
+      <PopupEditProfile
+        isOpen={isEditProfileFlag}
+        closeHandler={setIsEditProfileFlag}
+      />
+      <PopupEditAvatar
+        isOpen={isEditAvatarFlag}
+        closeHandler={setIsEditAvatarFlag}
+      />
       <ImagePopup
-        isImagePopupFlag={isImagePopupFlag}
-        selectedCard={selectedCard}
+        isOpen={isImagePopupFlag}
+        closeHandler={setIsImagePopupFlag}
+        card={selectedCard}
       />
     </div>
   );

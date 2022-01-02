@@ -1,11 +1,12 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm.jsx";
 
-const PopupEditProfile = ({ isEditProfileFlag }) => {
+const PopupEditProfile = ({ isOpen, closeHandler }) => {
   return (
     <PopupWithForm
       name="edit-profile"
-      isOpen={isEditProfileFlag}
+      isOpen={isOpen}
+      closeHandler={closeHandler}
       title="Редактировать профиль"
     >
       <input

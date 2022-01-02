@@ -22,10 +22,7 @@ class Api {
   addNewCard({ name, link }) {
     return fetch(`${this.url}/cards`, {
       method: "POST",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": this.headers["Content-Type"],
-      },
+      headers: this.headers,
       body: JSON.stringify({
         name,
         link,
@@ -53,10 +50,7 @@ class Api {
   changeUserInfo({ name, about }) {
     return fetch(`${this.url}/users/me`, {
       method: "PATCH",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": this.headers["Content-Type"],
-      },
+      headers: this.headers,
       body: JSON.stringify({
         name,
         about,
@@ -67,10 +61,7 @@ class Api {
   changeUserAvatar(avatar) {
     return fetch(`${this.url}/users/me/avatar`, {
       method: "PATCH",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": this.headers["Content-Type"],
-      },
+      headers: this.headers,
       body: JSON.stringify(avatar),
     }).then((dataUser) => this._checkStatus(dataUser));
   }

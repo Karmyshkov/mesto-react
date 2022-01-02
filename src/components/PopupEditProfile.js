@@ -14,6 +14,7 @@ const PopupEditProfile = ({ isOpen, onClose }) => {
         type="text"
         name="user-name"
         id="user-name"
+        placeholder="Имя пользователя"
       />
       <span id="user-name-error" className="popup__error"></span>
       <input
@@ -21,6 +22,7 @@ const PopupEditProfile = ({ isOpen, onClose }) => {
         type="text"
         name="user-job"
         id="user-job"
+        placeholder="Работа"
       />
       <span id="user-job-error" className="popup__error"></span>
     </PopupWithForm>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Main from "./Main";
@@ -6,24 +6,12 @@ import PopupAddCard from "./PopupAddCard";
 import PopupEditProfile from "./PopupEditProfile";
 import PopupEditAvatar from "./PopupEditAvatar";
 import ImagePopup from "./ImagePopup";
-import { api } from "../utils/Api";
 
 const App = () => {
-  const [cards, setCards] = useState([]);
-  const [userInfo, setUserInfo] = useState([]);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState({});
-
-  useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getInitialCards()]).then(
-      ([user, cards]) => {
-        setUserInfo(user);
-        setCards(cards);
-      }
-    );
-  }, []);
+  const [selectedCard, setSelectedCard] = useState({ name: "", link: "" });
 
   const handleCardClick = (obj) => {
     setSelectedCard(obj);
@@ -53,8 +41,6 @@ const App = () => {
       <div className="page">
         <Header />
         <Main
-          userInfo={userInfo}
-          cards={cards}
           onCardClick={handleCardClick}
           onEditAvatar={handleEditAvatarClick}
           onEditProfile={handleEditProfileClick}

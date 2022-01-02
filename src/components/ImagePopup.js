@@ -2,11 +2,7 @@ import React from "react";
 
 const ImagePopup = ({ onClose, card }) => {
   return (
-    <div
-      className={`popup popup_type_more ${
-        Object.keys(card).length !== 0 && "popup_opened"
-      }`}
-    >
+    <div className={`popup popup_type_more ${card.name && "popup_opened"}`}>
       <div className="popup__inner">
         <button
           onClick={() => onClose(false)}
@@ -14,7 +10,11 @@ const ImagePopup = ({ onClose, card }) => {
           type="button"
           aria-label="Закрыть"
         ></button>
-        <img className="popup__img" src={card.link} alt="#" />
+        <img
+          className="popup__img"
+          src={card.link}
+          alt={`Фото из ${card.name}`}
+        />
         <h2 className="popup__text">{card.name}</h2>
       </div>
     </div>

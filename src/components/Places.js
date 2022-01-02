@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 
 const Places = ({ cards, onCardClick }) => {
-  const CardsComponents = cards.map((card) => (
+  const cardsComponents = cards.map((card) => (
     <Card
       key={card._id}
       name={card.name}
@@ -14,7 +14,7 @@ const Places = ({ cards, onCardClick }) => {
 
   return (
     <section className="places page__places">
-      <ul className="places__cards">{CardsComponents}</ul>
+      <ul className="places__cards">{cardsComponents}</ul>
     </section>
   );
 };

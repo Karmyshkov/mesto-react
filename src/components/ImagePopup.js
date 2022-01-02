@@ -1,6 +1,6 @@
 import React from "react";
 
-const PopupTypeMore = ({ onClose, card }) => {
+const ImagePopup = ({ onClose, card }) => {
   return (
     <div
       className={`popup popup_type_more ${
@@ -21,4 +21,4 @@ const PopupTypeMore = ({ onClose, card }) => {
   );
 };
 
-export default PopupTypeMore;
+export default ImagePopup;

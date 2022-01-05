@@ -4,6 +4,9 @@ import { CurrentUserContext } from "../context/CurrentUserContext";
 const Card = ({ name, link, countLike, owner, onCardClick }) => {
   const currentUser = useContext(CurrentUserContext);
   const isOwn = owner === currentUser._id;
+  const cardDeleteButtonClassName = `card__btn card__btn_type_delete ${
+    isOwn && "card__btn_state_active"
+  }`;
 
   return (
     <li className="card">
@@ -24,7 +27,7 @@ const Card = ({ name, link, countLike, owner, onCardClick }) => {
         </div>
       </div>
       <button
-        className="card__btn card__btn_type_delete"
+        className={cardDeleteButtonClassName}
         type="button"
         aria-label="Удалить"
       ></button>

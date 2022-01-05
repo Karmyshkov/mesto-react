@@ -39,6 +39,16 @@ const App = () => {
     setIsAddPlacePopupOpen(true);
   };
 
+  const handleUpdateUser = (data) => {
+    api
+      .changeUserInfo(data)
+      .then((dataUser) => {
+        setCurrentUser(dataUser);
+        closeAllPopups();
+      })
+      .catch((err) => console.log(err));
+  };
+
   const closeAllPopups = () => {
     setIsAddPlacePopupOpen(false);
     setIsEditProfilePopupOpen(false);
@@ -63,6 +73,7 @@ const App = () => {
         <PopupEditProfile
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser}
         />
         <PopupEditAvatar
           isOpen={isEditAvatarPopupOpen}

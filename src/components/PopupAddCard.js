@@ -13,7 +13,6 @@ const PopupAddCard = ({ isOpen, onClose }) => {
         className="popup__field"
         type="text"
         name="new-place"
-        id="new-place"
         placeholder="Название"
       />
       <span id="new-place-error" className="popup__error"></span>
@@ -21,7 +20,6 @@ const PopupAddCard = ({ isOpen, onClose }) => {
         className="popup__field"
         type="url"
         name="new-img"
-        id="new-img"
         placeholder="Ссылка на картинку"
       />
       <span id="new-img-error" className="popup__error"></span>

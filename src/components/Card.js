@@ -1,6 +1,10 @@
 import React from "react";
+import { CurrentUserContext } from "../context/CurrentUserContext";
 
-const Card = ({ name, link, countLike, onCardClick }) => {
+const Card = ({ name, link, countLike, owner, onCardClick }) => {
+  const currentUser = React.useContext(CurrentUserContext);
+  const isOwn = owner === currentUser._id;
+
   return (
     <li className="card">
       <img

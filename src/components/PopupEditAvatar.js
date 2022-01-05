@@ -13,7 +13,6 @@ const PopupEditAvatar = ({ isOpen, onClose }) => {
         className="popup__field"
         type="url"
         name="avatar"
-        id="avatar"
         placeholder="Ссылка на картинку"
         required
       />

@@ -1,6 +1,8 @@
 import React from "react";
+import { CurrentUserContext } from "../context/CurrentUserContext";
 
-const Profile = ({ userInfo, onEditAvatar, onEditProfile, onAddPlace }) => {
+const Profile = ({ onEditAvatar, onEditProfile, onAddPlace }) => {
+  const userInfo = React.useContext(CurrentUserContext);
   return (
     <section className="profile page__profile">
       <div className="profile__wrap">

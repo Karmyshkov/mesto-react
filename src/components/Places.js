@@ -8,6 +8,7 @@ const Places = ({ cards, onCardClick }) => {
       name={card.name}
       link={card.link}
       countLike={card.likes.length}
+      owner={card.owner._id}
       onCardClick={onCardClick}
     />
   ));

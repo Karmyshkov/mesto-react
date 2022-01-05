@@ -49,6 +49,16 @@ const App = () => {
       .catch((err) => console.log(err));
   };
 
+  function handleUpdateAvatar(linkAvatar) {
+    api
+      .changeUserAvatar({ avatar: linkAvatar })
+      .then((datauser) => {
+        setCurrentUser(datauser);
+        closeAllPopups();
+      })
+      .catch((err) => console.log(err));
+  }
+
   const closeAllPopups = () => {
     setIsAddPlacePopupOpen(false);
     setIsEditProfilePopupOpen(false);
@@ -78,6 +88,7 @@ const App = () => {
         <PopupEditAvatar
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
         />
         <ImagePopup onClose={closeAllPopups} card={selectedCard} />
       </CurrentUserContext.Provider>

@@ -1,25 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 
-const PopupAddCard = ({ isOpen, onClose }) => {
+const PopupAddCard = ({ isOpen, onClose, onAddCard }) => {
+  const [newCard, setNewCard] = useState({ name: "", link: "" });
+
+  const handleInputValue = (evt) => {
+    setNewCard({ ...newCard, [evt.target.name]: evt.target.value });
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onAddCard(newCard);
+  };
+
   return (
     <PopupWithForm
       name="add-card"
       isOpen={isOpen}
       onClose={onClose}
       title="Новое место"
+      onSubmit={handleSubmit}
     >
       <input
+        onChange={handleInputValue}
         className="popup__field"
         type="text"
-        name="new-place"
+        name="name"
         placeholder="Название"
       />
       <span id="new-place-error" className="popup__error"></span>
       <input
+        onChange={handleInputValue}
         className="popup__field"
         type="url"
-        name="new-img"
+        name="link"
         placeholder="Ссылка на картинку"
       />
       <span id="new-img-error" className="popup__error"></span>

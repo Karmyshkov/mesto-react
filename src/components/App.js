@@ -11,15 +11,18 @@ import { CurrentUserContext } from "../context/CurrentUserContext";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState({});
+  const [cards, setCards] = useState([]);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({ name: "", link: "" });
 
   useEffect(() => {
-    api
-      .getUserInfo()
-      .then((user) => setCurrentUser(user))
+    Promise.all([api.getUserInfo(), api.getInitialCards()])
+      .then(([user, cards]) => {
+        setCurrentUser(user);
+        setCards(cards);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -49,7 +52,7 @@ const App = () => {
       .catch((err) => console.log(err));
   };
 
-  function handleUpdateAvatar(linkAvatar) {
+  const handleUpdateAvatar = (linkAvatar) => {
     api
       .changeUserAvatar({ avatar: linkAvatar })
       .then((datauser) => {
@@ -57,7 +60,17 @@ const App = () => {
         closeAllPopups();
       })
       .catch((err) => console.log(err));
-  }
+  };
+
+  const handleAddPlaceSubmit = (newCard) => {
+    api
+      .addNewCard(newCard)
+      .then((dataCard) => {
+        setCards([dataCard, ...cards]);
+        closeAllPopups();
+      })
+      .catch((err) => console.log(err));
+  };
 
   const closeAllPopups = () => {
     setIsAddPlacePopupOpen(false);
@@ -76,10 +89,15 @@ const App = () => {
             onEditAvatar={handleEditAvatarClick}
             onEditProfile={handleEditProfileClick}
             onAddPlace={handleAddPlaceClick}
+            cards={cards}
           />
           <Footer />
         </div>
-        <PopupAddCard isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
+        <PopupAddCard
+          isOpen={isAddPlacePopupOpen}
+          onClose={closeAllPopups}
+          onAddCard={handleAddPlaceSubmit}
+        />
         <PopupEditProfile
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}

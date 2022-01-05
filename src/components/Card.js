@@ -21,7 +21,6 @@ const Card = ({ name, link, countLike, owner, onCardClick }) => {
             type="button"
             aria-label="Лайкнуть"
           ></button>
-          <span className="card__count">{countLike}</span>
         </div>
       </div>
       <button

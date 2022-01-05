@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Profile from "./Profile";
 import Places from "./Places";
-import { api } from "../utils/Api";
 
-const Main = ({ onCardClick, onEditAvatar, onEditProfile, onAddPlace }) => {
-  const [cards, setCards] = useState([]);
-  useEffect(() => {
-    api
-      .getInitialCards()
-      .then((card) => setCards(card))
-      .catch((err) => console.log(err));
-  }, []);
-
+const Main = ({
+  onCardClick,
+  onEditAvatar,
+  onEditProfile,
+  onAddPlace,
+  cards,
+}) => {
   return (
     <main className="content">
       <Profile

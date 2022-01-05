@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-const Places = ({ cards, onCardClick }) => {
+const Places = ({ cards, onCardClick, onDeleteCard, onLikeCard }) => {
   const cardsComponents = cards.map((card) => (
     <Card
       key={card._id}
@@ -9,7 +9,10 @@ const Places = ({ cards, onCardClick }) => {
       link={card.link}
       countLike={card.likes.length}
       owner={card.owner._id}
+      card={card}
       onCardClick={onCardClick}
+      onDeleteCard={onDeleteCard}
+      onLikeCard={onLikeCard}
     />
   ));
 

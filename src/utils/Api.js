@@ -66,9 +66,9 @@ class Api {
     }).then((dataUser) => this._checkStatus(dataUser));
   }
 
-  addLikeCard(cardId) {
+  addLikeCard(cardId, isLiked) {
     return fetch(`${this.url}/cards/likes/${cardId}`, {
-      method: "PUT",
+      method: isLiked ? "PUT" : "DELETE",
       headers: {
         authorization: this.headers.authorization,
       },

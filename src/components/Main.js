@@ -7,6 +7,8 @@ const Main = ({
   onEditAvatar,
   onEditProfile,
   onAddPlace,
+  onDeleteCard,
+  onLikeCard,
   cards,
 }) => {
   return (
@@ -16,7 +18,12 @@ const Main = ({
         onEditProfile={onEditProfile}
         onAddPlace={onAddPlace}
       />
-      <Places cards={cards} onCardClick={onCardClick} />
+      <Places
+        cards={cards}
+        onCardClick={onCardClick}
+        onDeleteCard={onDeleteCard}
+        onLikeCard={onLikeCard}
+      />
     </main>
   );
 };

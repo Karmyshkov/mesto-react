@@ -38,8 +38,8 @@ const PopupEditProfile = memo(({ isOpen, onClose, onUpdateUser }) => {
         name="name"
         placeholder="Имя пользователя"
         value={userInfo.name || ""}
-        maxLength={30}
-        minLength={1}
+        maxLength={40}
+        minLength={2}
       />
       <span id="user-name-error" className="popup__error"></span>
       <input
@@ -49,8 +49,8 @@ const PopupEditProfile = memo(({ isOpen, onClose, onUpdateUser }) => {
         name="about"
         placeholder="Работа"
         value={userInfo.about || ""}
-        maxLength={50}
-        minLength={1}
+        maxLength={200}
+        minLength={2}
       />
       <span id="user-job-error" className="popup__error"></span>
     </PopupWithForm>

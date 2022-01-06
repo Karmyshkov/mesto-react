@@ -28,7 +28,7 @@ const PopupAddCard = memo(({ isOpen, onClose, onAddCard }) => {
         name="name"
         placeholder="Название"
         maxLength={30}
-        minLength={1}
+        minLength={2}
       />
       <span id="new-place-error" className="popup__error"></span>
       <input

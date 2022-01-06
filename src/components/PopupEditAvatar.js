@@ -1,7 +1,7 @@
-import React, { createRef } from "react";
+import React, { createRef, memo } from "react";
 import PopupWithForm from "./PopupWithForm.js";
 
-const PopupEditAvatar = ({ isOpen, onClose, onUpdateAvatar }) => {
+const PopupEditAvatar = memo(({ isOpen, onClose, onUpdateAvatar }) => {
   const refAvatar = createRef();
 
   const handleSubmit = (evt) => {
@@ -28,6 +28,6 @@ const PopupEditAvatar = ({ isOpen, onClose, onUpdateAvatar }) => {
       <span id="avatar-error" className="popup__error"></span>
     </PopupWithForm>
   );
-};
+});
 
 export default PopupEditAvatar;

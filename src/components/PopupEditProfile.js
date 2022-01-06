@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, memo } from "react";
 import PopupWithForm from "./PopupWithForm";
 import { CurrentUserContext } from "../context/CurrentUserContext";
 
-const PopupEditProfile = ({ isOpen, onClose, onUpdateUser }) => {
+const PopupEditProfile = memo(({ isOpen, onClose, onUpdateUser }) => {
   const currentUser = useContext(CurrentUserContext);
 
   const [userInfo, setUserInfo] = useState({
@@ -38,6 +38,8 @@ const PopupEditProfile = ({ isOpen, onClose, onUpdateUser }) => {
         name="name"
         placeholder="Имя пользователя"
         value={userInfo.name || ""}
+        maxLength={30}
+        minLength={1}
       />
       <span id="user-name-error" className="popup__error"></span>
       <input
@@ -47,10 +49,12 @@ const PopupEditProfile = ({ isOpen, onClose, onUpdateUser }) => {
         name="about"
         placeholder="Работа"
         value={userInfo.about || ""}
+        maxLength={50}
+        minLength={1}
       />
       <span id="user-job-error" className="popup__error"></span>
     </PopupWithForm>
   );
-};
+});
 
 export default PopupEditProfile;

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
-const ImagePopup = ({ onClose, card }) => {
+const ImagePopup = memo(({ onClose, card }) => {
   return (
     <div className={`popup popup_type_more ${card.name && "popup_opened"}`}>
       <div className="popup__inner">
@@ -19,6 +19,6 @@ const ImagePopup = ({ onClose, card }) => {
       </div>
     </div>
   );
-};
+});
 
 export default ImagePopup;

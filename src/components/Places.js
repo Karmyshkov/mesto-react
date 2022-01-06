@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import Card from "./Card";
 
-const Places = ({ cards, onCardClick, onDeleteCard, onLikeCard }) => {
+const Places = memo(({ cards, onCardClick, onDeleteCard, onLikeCard }) => {
   const cardsComponents = cards.map((card) => (
     <Card
       key={card._id}
@@ -21,6 +21,6 @@ const Places = ({ cards, onCardClick, onDeleteCard, onLikeCard }) => {
       <ul className="places__cards">{cardsComponents}</ul>
     </section>
   );
-};
+});
 
 export default Places;

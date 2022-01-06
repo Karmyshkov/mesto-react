@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import PopupWithForm from "./PopupWithForm";
 
-const PopupAddCard = ({ isOpen, onClose, onAddCard }) => {
+const PopupAddCard = memo(({ isOpen, onClose, onAddCard }) => {
   const [newCard, setNewCard] = useState({ name: "", link: "" });
 
   const handleInputValue = (evt) => {
@@ -27,6 +27,8 @@ const PopupAddCard = ({ isOpen, onClose, onAddCard }) => {
         type="text"
         name="name"
         placeholder="Название"
+        maxLength={30}
+        minLength={1}
       />
       <span id="new-place-error" className="popup__error"></span>
       <input
@@ -39,6 +41,6 @@ const PopupAddCard = ({ isOpen, onClose, onAddCard }) => {
       <span id="new-img-error" className="popup__error"></span>
     </PopupWithForm>
   );
-};
+});
 
 export default PopupAddCard;

@@ -37,7 +37,7 @@ const PopupEditProfile = ({ isOpen, onClose, onUpdateUser }) => {
         type="text"
         name="name"
         placeholder="Имя пользователя"
-        defaultValue={userInfo.name}
+        value={userInfo.name || ""}
       />
       <span id="user-name-error" className="popup__error"></span>
       <input
@@ -46,7 +46,7 @@ const PopupEditProfile = ({ isOpen, onClose, onUpdateUser }) => {
         type="text"
         name="about"
         placeholder="Работа"
-        defaultValue={userInfo.about}
+        value={userInfo.about || ""}
       />
       <span id="user-job-error" className="popup__error"></span>
     </PopupWithForm>
